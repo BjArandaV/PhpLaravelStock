@@ -27,6 +27,10 @@ Route::get('/agregarSu', [App\Http\Controllers\ProductosController::class, 'agre
 
 Route::post('/guardarProducto', [App\Http\Controllers\ProductosController::class, 'guardar']);
 Route::post('/guardarSucursal', [App\Http\Controllers\ProductosController::class, 'guardarSucursal']);
+Route::put('/updateProducto/{id}', [App\Http\Controllers\ProductosController::class, 'updateProducto'])->name('updateProducto');
+
 
 Route::get('/miniatura/{filename}', [App\Http\Controllers\ProductosController::class, 'getImagen'])->name('miniatura');
 Route::get('/eliminarProducto/{id}', [App\Http\Controllers\ProductosController::class, 'deleteProducto'])->name('eliminarProducto');
+Route::get('/editarProducto/{id}', [App\Http\Controllers\ProductosController::class, 'edit'])->name('editarProducto');
+

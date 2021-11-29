@@ -97,4 +97,21 @@ class ProductosController extends Controller
         return $this->listar();
     }
 
+
+public function edit($id){
+    $productos = Producto::findOrFail($id);
+    
+    return view('productos.edit',compact('productos'));
+}
+
+public function updateProducto(Request $request, $id){
+
+    $productos = Producto::findOrFail($id);
+    $productos->nombre=$request->input('nombre');
+    $productos->precio=$request->input('precio');
+
+    $productos->save();
+    return redirect()->route('listarProductos');
+}
+
 }

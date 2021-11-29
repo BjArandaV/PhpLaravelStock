@@ -32,6 +32,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-footer">
+                                            <a href="{{ url('editarProducto/'.$producto->id) }}" type="button" class="btn btn-warning">Editar</a>
                                             <a href="#eliminarModal{{$producto->id}}" role="button" class="btn btn-sm btn-danger" data-toggle="modal">Eliminar</a>
                                             
                                             <!-- Modal / Ventana / Overlay en HTML -->
