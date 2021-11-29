@@ -51,8 +51,9 @@ class ProductosController extends Controller
         }
 
         $producto->save();
-
+ 
         return $this->listar();
+       
     }
 
     public function getImagen($filename){
@@ -80,6 +81,25 @@ class ProductosController extends Controller
             ));
     }
 
+    public function deleteSucursal($id){
+        $sucursales = Sucursal::find($id);
+        if($sucursales){
+            //Eliminar Imagen
+            $sucursales->delete();
+            $message="Sucursal Eliminada Correctamente";
+        }else{
+            $message="El producto no fue eliminado";
+        }
+
+        $sucursales = Sucursal::paginate(8);
+        return view('productos.editSu')
+        ->with(
+            array(
+                'message' => $message,
+                'sucursales' => $sucursales
+            ));
+    }
+
 
     public function agregarSu(){
        
@@ -102,6 +122,31 @@ public function edit($id){
     $productos = Producto::findOrFail($id);
     
     return view('productos.edit',compact('productos'));
+}
+
+public function editSu(){
+
+    $sucursales = Sucursal::paginate(20);
+    return view('productos.editSu')
+    ->with('sucursales', $sucursales);
+        
+ 
+    //return view('productos.editSu',compact('sucursal'));
+}
+
+public function edit2($id){
+
+    $sucursales = Sucursal::findOrFail($id);
+    
+    return view('productos.edit2',compact('sucursales'));
+}
+
+public function updateSucursal(Request $request, $id){
+
+    $sucursales = Sucursal::findOrFail($id);
+    $sucursales->nombre=$request->input('nombre');
+    $sucursales->save();
+    return redirect()->route('editarSucursal1');
 }
 
 public function updateProducto(Request $request, $id){

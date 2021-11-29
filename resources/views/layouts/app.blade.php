@@ -65,6 +65,7 @@
                                         <a class="dropdown-item"  href="{{ url('/listar') }}">Listar</a>
                                         <a class="dropdown-item"  href="{{ url('/agregar') }}">Agregar producto</a>
                                         <a class="dropdown-item"  href="{{ url('/agregarSu') }}">Agregar sucursal</a>
+                                        <a class="dropdown-item"  href="{{ url('/editSu') }}">Editar sucursal</a>
                                     </div>
                                 </li>
 

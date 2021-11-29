@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+@if(isset($message))
+    <div class="alert alert-danger">
+        {{ $message }}
+    </div>
+    @endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
