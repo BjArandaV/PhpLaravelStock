@@ -114,7 +114,7 @@ class ProductosController extends Controller
         $sucursal->nombre=$request->input('nombre');
         $sucursal->save();
 
-        return $this->listar();
+        return $this->editSu();
     }
 
 
@@ -126,7 +126,7 @@ public function edit($id){
 
 public function editSu(){
 
-    $sucursales = Sucursal::paginate(20);
+    $sucursales = Sucursal::paginate(9);
     return view('productos.editSu')
     ->with('sucursales', $sucursales);
         
