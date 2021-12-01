@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-@if(isset($message))
+    @if(isset($message))
     <div class="alert alert-danger">
         {{ $message }}
     </div>
@@ -33,7 +33,7 @@
                             <select name="sucursal" class="form-select">
                                 <option selected disabled>Seleccione una Sucursal</option>
                                 @foreach($sucursales as $sucursal)
-                                    <option value="{{ $sucursal->id}}">{{ $sucursal->nombre}}</option>
+                                <option value="{{ $sucursal->id}}">{{ $sucursal->nombre}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -43,15 +43,15 @@
                         </div>
                         <br>
                         @if($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                    @endforeach   
-                                </ul>
-                            </div>                                                     
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                         @endif
-                    </form>             
+                    </form>
                 </div>
             </div>
         </div>

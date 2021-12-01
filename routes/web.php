@@ -37,4 +37,3 @@ Route::get('/eliminarProducto/{id}', [App\Http\Controllers\ProductosController::
 Route::get('/eliminarSucursal/{id}', [App\Http\Controllers\ProductosController::class, 'deleteSucursal'])->name('eliminarSucursal');
 Route::get('/editarProducto/{id}', [App\Http\Controllers\ProductosController::class, 'edit'])->name('editarProducto');
 Route::get('/editarSucursal/{id}', [App\Http\Controllers\ProductosController::class, 'edit2'])->name('editarSucursal');
-

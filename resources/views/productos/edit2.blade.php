@@ -7,13 +7,13 @@
             <div class="card">
                 <div class="card-header">Editar Sucursal</div>
                 <div class="card-body">
-               
-                    <form action="{{ url('updateSucursal/'.$sucursales->id) }}" method="post" >
+
+                    <form action="{{ url('updateSucursal/'.$sucursales->id) }}" method="post">
                         @csrf
-                    @method('PUT')
+                        @method('PUT')
                         <div class="mb-3">
                             <label for="" class="form-label">Sucursal</label>
-                            <input type="text" name="nombre" class="form-control" value="{{ $sucursales->nombre }}">
+                            <input type="text" name="nombre" class="form-control" required minlength="4" value="{{ $sucursales->nombre }}">
                         </div>
 
                         <div class="col-auto">
@@ -21,16 +21,16 @@
                         </div>
                         <br>
                         @if($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                    @endforeach   
-                                </ul>
-                            </div>                                                     
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                         @endif
-                    </form>  
-                              
+                    </form>
+
                 </div>
             </div>
         </div>

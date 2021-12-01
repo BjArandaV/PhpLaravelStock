@@ -7,10 +7,10 @@
             <div class="card">
                 <div class="card-header">Editar Producto</div>
                 <div class="card-body">
-               
-                    <form action="{{ url('updateProducto/'.$productos->id) }}" method="post" >
+
+                    <form action="{{ url('updateProducto/'.$productos->id) }}" method="post">
                         @csrf
-                    @method('PUT')
+                        @method('PUT')
                         <div class="mb-3">
                             <label for="" class="form-label">Producto</label>
                             <input type="text" name="nombre" class="form-control" value="{{ $productos->nombre }}">
@@ -25,16 +25,16 @@
                         </div>
                         <br>
                         @if($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                    @endforeach   
-                                </ul>
-                            </div>                                                     
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                         @endif
-                    </form>  
-                              
+                    </form>
+
                 </div>
             </div>
         </div>
