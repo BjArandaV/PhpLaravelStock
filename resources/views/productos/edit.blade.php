@@ -19,6 +19,10 @@
                             <label for="" class="form-label">Precio</label>
                             <input type="text" name="precio" class="form-control" value="{{ $productos->precio }}">
                         </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Descripcion</label>
+                            <input type="text" name="descripcion" class="form-control" value="{{ $productos->descripcion }}">
+                        </div>
 
                         <div class="col-auto">
                             <button type="submit" class="btn btn-success">Guardar</button>

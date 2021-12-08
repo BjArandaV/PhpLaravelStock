@@ -33,7 +33,9 @@
                                             <h5 class="card-title">{{ $producto->nombre }}</h5>
                                             <p class="card-text">$ {{ $producto->precio }}</p>
                                             <p class="card-text">{{ $producto->sucursal->nombre }}</p>
-                                            <p class="card-text"><small class="text-muted">{{ \FormatTime::LongTimeFilter($producto->created_at) }}</small></p>
+                                            <p class="card-text"><small class="text-info">{{ $producto->descripcion}}</small></p>
+                                            <p class="card-text"><small class="text-muted">Codigo: {{ $producto->codigo}}</small></p>
+                                            
                                         </div>
                                     </div>
                                     <div class="card-footer">

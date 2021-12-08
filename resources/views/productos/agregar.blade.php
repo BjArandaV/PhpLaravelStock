@@ -15,6 +15,10 @@
                     <form action="{{ url('/guardarProducto')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
+                            <label for="" class="form-label">Codigo</label>
+                            <input type="text" name="codigo" class="form-control" value="{{ old('codigo') }}">
+                        </div>
+                        <div class="mb-3">
                             <label for="" class="form-label">Producto</label>
                             <input type="text" name="nombre" class="form-control" value="{{ old('nombre') }}">
                         </div>
@@ -22,7 +26,10 @@
                             <label for="" class="form-label">Precio</label>
                             <input type="text" name="precio" class="form-control" value="{{ old('precio') }}">
                         </div>
-
+                        <div class="mb-3">
+                            <label for="" class="form-label">Descripcion</label>
+                            <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion') }}" placeholder="Escribe una breve descripción del producto...">
+                        </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Imagen</label>
                             <input type="file" name="imagen" id="imagen" class="form-control form-control-sm">
