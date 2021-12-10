@@ -38,6 +38,7 @@ class ProductosController extends Controller
         $validateData = $this->validate($request, [
             'codigo' => 'required|min:2',
             'nombre' => 'required|min:3',
+            'categoria' => 'required|min:4',
             'precio' => 'integer',
             'descripcion' => 'required|min:10',
             'sucursal' => 'required'
@@ -46,6 +47,7 @@ class ProductosController extends Controller
         if ($producto) {
             $producto->codigo = $request->input('codigo');
             $producto->nombre = $request->input('nombre');
+            $producto->categoria = $request->input('categoria');
             $producto->precio = $request->input('precio');
             $producto->descripcion = $request->input('descripcion');
             $producto->sucursal_id = $request->input('sucursal');
@@ -214,10 +216,7 @@ class ProductosController extends Controller
             $search = \Request::get('search');
             return redirect()->route('buscarProducto', array('search' => $search));
         }
-
-        $productos = Producto::where('nombre', 'like', '%' . $search . '%')->paginate(8);
-        $productos = Producto::where('id', 'like', '%' . $search . '%')->paginate(8);
-        $productos = Producto::where('codigo', 'like', '%' . $search . '%')->paginate(8);
+        $productos = Producto::where('nombre', 'like', '%'. $search . '%')->paginate(8);
         return view('productos.listar')
             ->with(
                 array(
@@ -226,20 +225,20 @@ class ProductosController extends Controller
             );
     }
 
-    public function searchSucursal($search = null)
+    public function searchProductoC($search = null)
     {
 
         if (is_null($search)) {
             $search = \Request::get('search');
-            return redirect()->route('buscarSucursal', array('search' => $search));
+            return redirect()->route('buscarProductoC', array('search' => $search));
         }
-
-        $sucursal = Sucursal::where('nombre', 'like', '%' . $search . '%')->paginate(8);
+        $productos = Producto::where('codigo', 'like', '%'. $search . '%')->paginate(8);
         return view('productos.listar')
             ->with(
                 array(
-                    'sucursal' => $sucursal
+                    'productos' => $productos
                 )
             );
     }
+
 }

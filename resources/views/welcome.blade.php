@@ -34,11 +34,6 @@
 
 
         }
-
-        h2 {
-            color: white;
-        }
-
         .b_login {
             background: linear-gradient(45deg, #6623ed 30%, #01FF94 90%);
             font-size: 30px;
@@ -59,7 +54,7 @@
 
 <body>
     <div class="login_container">
-        <h2>INICIO</h2>
+
         <button class="b_login" role="link" onclick="window.location='login'"> INICIA SESIÓN </button>
         <button class="b_login" role="link" onclick="window.location='register'"> REGISTRATE </button>
     </div>

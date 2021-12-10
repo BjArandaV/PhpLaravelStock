@@ -46,6 +46,7 @@
                                                 <p class="card-text">$ {{ $producto->precio }}</p>
                                                 <p class="card-text">{{ $producto->sucursal->nombre }}</p>
                                                 <p class="card-text"><small class="text-info">{{ $producto->descripcion}}</small></p>
+                                                <p class="card-text"><small class="text-muted">Categoría: {{ $producto->categoria}}</small></p>
                                                 <p class="card-text"><small class="text-muted">Codigo: {{ $producto->codigo}}</small></p>
 
                                             </div>

@@ -32,8 +32,12 @@
                                 <input type="text" name="codigo" class="form-control" value="{{ old('codigo') }}">
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Producto</label>
+                                <label for="" class="form-label">Nombre</label>
                                 <input type="text" name="nombre" class="form-control" value="{{ old('nombre') }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Categoria</label>
+                                <input type="text" name="categoria" class="form-control" value="{{ old('categoria') }}">
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Precio</label>

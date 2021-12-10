@@ -14,7 +14,19 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
+    <script>
+        function validar() {
+            if (document.getElementById("rd1").checked) {
+                document.getElementById("dv1").style.display = "block";
+                document.getElementById("dv2").style.display = "none";
+            }
+            if (document.getElementById("rd2").checked) {
+                document.getElementById("dv2").style.display = "block";
+                document.getElementById("dv1").style.display = "none";
+            }
+            a
+        }
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -37,7 +49,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'StockerS') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -67,12 +79,26 @@
                         @endif
                         @else
 
-                        <form action="{{ url('buscarProducto')}}">
-                            <div class="input-group">
-                                <input type="text" name="search" id="search" class="form-control" placeholder="Buscar codigo/nombre">
-                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
-                            </div>
-                        </form>
+                        <form>
+                            <label>Buscar producto por Nombre <input type="radio" name="busqueda" id="rd1" onclick="validar()"></label><br>
+                            <label>Buscar producto por Código <input type="radio" name="busqueda" id="rd2" onclick="validar()"></label><br>
+                        </form> <br><br>
+                        <div id="dv1" style="display:none">
+                            <form action="{{ url('buscarProducto')}}">
+                                <div class="input-group">
+                                    <input type="text" name="search" id="search" class="form-control" placeholder="Buscar por nombre">
+                                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                </div>
+                            </form><br>
+                        </div>
+                        <div id="dv2" style="display:none">
+                            <form action="{{ url('buscarProductoC')}}">
+                                <div class="input-group">
+                                    <input type="text" name="search" id="search" class="form-control" placeholder="Buscar por codigo">
+                                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -39,4 +39,4 @@ Route::get('/editarProducto/{id}', [App\Http\Controllers\ProductosController::cl
 Route::get('/editarSucursal/{id}', [App\Http\Controllers\ProductosController::class, 'edit2'])->name('editarSucursal');
 
 Route::get('/buscarProducto/{search?}', [App\Http\Controllers\ProductosController::class, 'searchProducto'])->name('buscarProducto');
-Route::get('/buscarSucursal/{search?}', [App\Http\Controllers\ProductosController::class, 'searchSucursal'])->name('buscarSucursal');
+Route::get('/buscarProductoC/{search?}', [App\Http\Controllers\ProductosController::class, 'searchProductoC'])->name('buscarProductoC');
